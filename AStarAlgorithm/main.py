@@ -111,4 +111,7 @@ if __name__ == "__main__":
 
     # Displaying the Cost of the path``
     l = textLabel(m,"Cost of Path:",len(path1))
+
+    print(path1)
+    
     m.run()
