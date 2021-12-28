@@ -2,12 +2,24 @@ from tkinter.constants import S
 from pyamaze import maze,agent,textLabel,COLOR
 from queue import PriorityQueue
 
+"""
+Manhatten distance between points A(x1,y1) and B(x2,y2)
+is the |x2-x1| + |y2-y1|
+"""
 # Heuristic Function which returns the Manhatten Distance between start cell and end cell
 def hDist(startCell,endCell):
     x1,y1 = startCell
     x2,y2 = endCell
     return abs(x2-x1) + abs(y2-y1)
 
+"""
+gDist[cell1: x] represents the distance of cell1 from the start cell is x units
+hDist(cell1,goalCell) returns the heuristic distance from cell1 to goalCell
+
+fDist = gDist + hDist
+
+We choose the cells with minimum fDist subsequently in order to find the optimal path
+"""
 # A Star Algorithm 
 def aStarAlgorithm(maze: maze):
     # Start Cell is the right bottom cell i.e (n,n) where n is the size of maze
